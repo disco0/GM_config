@@ -1,0 +1,39 @@
+{
+    "name": "gm_config",
+    "description": "A lightweight, reusable, cross-browser graphical settings framework for inclusion in user scripts.",
+    "repository": 
+    {
+        "url": "git@github.com:sizzlemctwizzle/GM_config.git",
+        "type": "git"
+    },
+    "author": 
+    {
+        "name": "Mike Medley",
+        "url": "https://github.com/sizzlemctwizzle"
+    },
+    "contributors": 
+    [
+        { 
+            "url": "https://github.com/sizzlemctwizzle",
+            "name": "Mike Medley"
+        },
+        {
+            "name": "Marti Martz",
+            "url": "https://github.com/Martii"
+        },
+        {
+            "name": "Christian Mäder",
+            "url": "https://github.com/cimnine"
+        },
+        {
+            "name": "Zulkarnain K.",
+            "url": "https://github.com/LouCypher"
+        }
+    ],
+    "devDependencies": {
+        "@types/greasemonkey": "^4.0.0",
+        "@types/tampermonkey": "^4.0.0",
+        "tsdef": "^0.0.14",
+        "type-fest": "^0.20.2"
+    }
+}
