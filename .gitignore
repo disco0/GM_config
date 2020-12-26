@@ -1,0 +1,7 @@
+# npm/node/yarn
+node_modules
+package-lock.json
+yarn.lock
+
+# VS Code 
+debug.log
