@@ -34,6 +34,10 @@ GM_config is distributed under the terms of the GNU Lesser General Public Licens
 // @copyright     2009+, Mike Medley (https://github.com/sizzlemctwizzle)
 // @license       LGPL-3.0-or-later; https://raw.githubusercontent.com/sizzlemctwizzle/GM_config/master/LICENSE
 
+// @homepageURL   https://openuserjs.org/libs/sizzle/GM_config
+// @homepageURL   https://github.com/sizzlemctwizzle/GM_config
+// @supportURL    https://github.com/sizzlemctwizzle/GM_config/issues
+
 // ==/UserScript==
 
 // ==/UserLibrary==
@@ -322,8 +326,15 @@ GM_configStruct.prototype = {
       // In WebKit src can't be set until it is added to the page
       this.frame.src = 'about:blank';
       // we wait for the iframe to load before we can modify it
+      var that = this;
       this.frame.addEventListener('load', function(e) {
           var frame = config.frame;
+          if (frame.src && !frame.contentDocument) {
+            // Some agents need this as an empty string for newer context implementations
+            frame.src = "";
+          } else if (!frame.contentDocument) {
+            that.log("GM_config failed to initialize default settings dialog node!");
+          }
           var body = frame.contentDocument.getElementsByTagName('body')[0];
           body.id = config.id; // Allows for prefixing styles with the config id
           buildConfigWin(body, frame.contentDocument.getElementsByTagName('head')[0]);
